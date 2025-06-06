@@ -20,12 +20,12 @@ public class ThiSinhService {
         String hoTen = sc.nextLine();
 
         // Nhập giới tính dạng enum GenDer
-        GenDer gioiTinh = null;
+        Gender gioiTinh = null;
         while (gioiTinh == null) {
             System.out.print("Nhập giới tính (MALE, FEMALE, OTHER): ");
             String gtInput = sc.nextLine().toUpperCase();
             try {
-                gioiTinh = GenDer.valueOf(gtInput);
+                gioiTinh = Gender.valueOf(gtInput);
             } catch (IllegalArgumentException e) {
                 System.out.println("Giới tính không hợp lệ, vui lòng nhập lại.");
             }
@@ -73,7 +73,7 @@ public class ThiSinhService {
                 String gtInput = sc.nextLine().toUpperCase();
                 if (!gtInput.isEmpty()) {
                     try {
-                        GenDer gioiTinh = GenDer.valueOf(gtInput);
+                        Gender gioiTinh = Gender.valueOf(gtInput);
                         ts.setGioiTinh(gioiTinh);
                     } catch (IllegalArgumentException e) {
                         System.out.println("Giới tính không hợp lệ, giữ nguyên giá trị cũ.");
@@ -299,7 +299,7 @@ public void timKiemThiSinh() {
             System.out.print("Nhập giới tính (NAM/NU): ");
             String gioiTinhStr = sc.nextLine().toUpperCase().trim();
             try {
-                GenDer gioiTinh = GenDer.valueOf(gioiTinhStr);
+                Gender gioiTinh = Gender.valueOf(gioiTinhStr);
                 ketQua = danhSachThiSinh.stream()
                         .filter(ts -> ts.getGioiTinh() == gioiTinh)
                         .collect(Collectors.toList());

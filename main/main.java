@@ -2,13 +2,14 @@ package main;
 import model.*;
 import java.util.Scanner;
 
+
 public class main {
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     NguyenVongService nvservice = new NguyenVongService();
     ThiSinhService tsservice = new ThiSinhService();
     GiamThiService gtservice = new GiamThiService();
-    ThongKeTuyenSinhService tkservice = new ThongKeTuyenSinhService(tsservice, nvservice);
+    ThongKeTuyenSinhService tkservice = new ThongKeTuyenSinhService(tsservice);
     int choice = -1;
 
     do {
@@ -31,6 +32,7 @@ public class main {
             System.out.println("15. Xóa giám thị");
             System.out.println("16. Hiển thị danh sách giám thị");
             System.out.println("17. Hiển thị danh sách thí sinh trúng tuyển theo mã nguyện vọng");
+            System.out.println("18. Hiển thị danh sách thí sinh trúng tuyển theo mã trường và mã ngành");
             System.out.println("0. Thoát");
             System.out.print("Chọn chức năng: ");
 
@@ -93,11 +95,14 @@ public class main {
                 case 17:
                     tkservice.hienThiDanhSachTrungTuyen();
                     break;
+                case 18:
+                    tkservice.hienThiDanhSachTrungTuyenTheoMaTruongVaMaNganh();
+                    break;
                 case 0:
                     System.out.println("Đang thoát chương trình...");
                     break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn từ 0-17.");
+                    System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn từ 0-18.");
             }
         } while (choice != 0);
 

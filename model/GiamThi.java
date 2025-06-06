@@ -5,12 +5,12 @@ public class GiamThi {
 
     private int maGiamThi;
     private String hoTen;
-    private GenDer gioiTinh;
+    private Gender gioiTinh;
     private int namSinh;
     private String queQuan;
 
 
-    public GiamThi(String hoTen, GenDer gioiTinh, int namSinh, String queQuan) {
+    public GiamThi(String hoTen, Gender gioiTinh, int namSinh, String queQuan) {
         this.maGiamThi = ++counter;
         this.hoTen = hoTen;
         this.gioiTinh = gioiTinh;
@@ -26,7 +26,7 @@ public class GiamThi {
         return hoTen;
     }
 
-    public GenDer getGioiTinh() {
+    public Gender getGioiTinh() {
         return gioiTinh;
     }
 
@@ -42,7 +42,7 @@ public class GiamThi {
         this.hoTen = hoTen;
     }
 
-    public void setGioiTinh(GenDer gioiTinh) {
+    public void setGioiTinh(Gender gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
 

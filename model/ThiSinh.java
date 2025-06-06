@@ -4,14 +4,14 @@ import java.util.*;
 public class ThiSinh {
     private String soBaoDanh;
     private String hoTen;
-    private GenDer gioiTinh;
+    private Gender gioiTinh;
     private int namSinh;
     private String queQuan;
     private double diemThi;
     private double diemUuTien;
     private List<NguyenVong> danhSachNguyenVong;
 
-    public ThiSinh(String soBaoDanh, String hoTen, GenDer gioiTinh, int namSinh, String queQuan,
+    public ThiSinh(String soBaoDanh, String hoTen, Gender gioiTinh, int namSinh, String queQuan,
                    double diemThi, double diemUuTien) {
         this.soBaoDanh = soBaoDanh;
         this.hoTen = hoTen;
@@ -47,11 +47,11 @@ public class ThiSinh {
         this.hoTen = hoTen;
     }
 
-    public GenDer getGioiTinh() {
+    public Gender getGioiTinh() {
         return gioiTinh;
     }
 
-    public void setGioiTinh(GenDer gioiTinh) {
+    public void setGioiTinh(Gender gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
 

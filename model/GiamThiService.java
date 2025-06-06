@@ -16,12 +16,12 @@ public class GiamThiService {
         String hoTen = sc.nextLine();
         
         // Nhập giới tính
-        GenDer gioiTinh = null;
+        Gender gioiTinh = null;
         while (gioiTinh == null) {
             System.out.print("Nhập giới tính (MALE, FEMALE, OTHER): ");
             String gioiTinhInput = sc.nextLine().toUpperCase();
             try {
-                gioiTinh = GenDer.valueOf(gioiTinhInput);
+                gioiTinh = Gender.valueOf(gioiTinhInput);
             } catch (IllegalArgumentException e) {
                 System.out.println("Giới tính không hợp lệ. Vui lòng nhập lại.");
             }
@@ -99,7 +99,7 @@ public class GiamThiService {
             String gioiTinhInput = sc.nextLine().toUpperCase();
             if (!gioiTinhInput.trim().isEmpty()) {
                 try {
-                    GenDer gioiTinhMoi = GenDer.valueOf(gioiTinhInput);
+                    Gender gioiTinhMoi = Gender.valueOf(gioiTinhInput);
                     giamThiCapNhat.setGioiTinh(gioiTinhMoi);
                 } catch (IllegalArgumentException e) {
                     System.out.println("Giới tính không hợp lệ. Giữ nguyên giới tính cũ.");

@@ -79,9 +79,9 @@ public class NguyenVong {
     sb.append("╔═══════════════════════════════════════════════╗\n");
     sb.append(String.format("║  NGUYỆN VỌNG #%-3d                         ║\n", maNguyenVong));
     sb.append("╠═══════════════════════════════════════════════╣\n");
-    sb.append(String.format("║  Mã ngành:     %-27s ║\n", maNganh));
-    sb.append(String.format("║  Tên ngành:    %-27s ║\n", tenNganh));
-    sb.append(String.format("║  Mã trường:    %-27s ║\n", maTruong));
+    sb.append(String.format("║  Mã ngành:     %-27s   ║\n", maNganh));
+    sb.append(String.format("║  Tên ngành:    %-27s   ║\n", tenNganh));
+    sb.append(String.format("║  Mã trường:    %-27s   ║\n", maTruong));
     sb.append(String.format("║  Khối xét tuyển: %-25s ║\n", khoiXetTuyen));
     sb.append(String.format("║  Điểm chuẩn:   %-27.1f ║\n", diemDatDieuKien));
     sb.append("╚═══════════════════════════════════════════════╝");

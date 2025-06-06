@@ -1,5 +1,5 @@
 package model;
-    public enum GenDer {
+    public enum Gender {
       MALE, FEMALE, OTHER
 }
    
