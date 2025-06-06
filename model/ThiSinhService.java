@@ -203,7 +203,7 @@ public void themNguyenVongChoThiSinh() {
         
         // Thêm nguyện vọng cho thí sinh
         thiSinh.themNguyenVong(nguyenVongChon);
-        System.out.println("✅ Thêm nguyện vọng thành công cho thí sinh " + thiSinh.getHoTen());
+        System.out.println(" Thêm nguyện vọng thành công cho thí sinh " + thiSinh.getHoTen());
         
     } catch (NumberFormatException e) {
         System.out.println("Mã nguyện vọng phải là số nguyên!");

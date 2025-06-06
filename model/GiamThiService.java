@@ -51,7 +51,7 @@ public class GiamThiService {
         GiamThi giamThi = new GiamThi(hoTen, gioiTinh, namSinh, queQuan);
         danhSachGiamThi.add(giamThi);
         
-        System.out.println("✅ Thêm giám thị thành công! Mã giám thị: " + giamThi.getMaGiamThi());
+        System.out.println("Thêm giám thị thành công! Mã giám thị: " + giamThi.getMaGiamThi());
     }
     
     // Cập nhật giám thị
@@ -129,10 +129,10 @@ public class GiamThiService {
                 giamThiCapNhat.setQueQuan(queQuanMoi);
             }
             
-            System.out.println("✅ Cập nhật giám thị thành công!");
+            System.out.println("Cập nhật giám thị thành công!");
             
         } catch (NumberFormatException e) {
-            System.out.println("❌ Mã giám thị phải là số nguyên!");
+            System.out.println("Mã giám thị phải là số nguyên!");
         }
     }
     
@@ -152,12 +152,12 @@ public class GiamThiService {
             boolean removed = danhSachGiamThi.removeIf(gt -> gt.getMaGiamThi() == maGiamThi);
             
             if (removed) {
-                System.out.println("✅ Xóa giám thị thành công!");
+                System.out.println("Xóa giám thị thành công!");
             } else {
-                System.out.println("❌ Không tìm thấy giám thị với mã: " + maGiamThi);
+                System.out.println("Không tìm thấy giám thị với mã: " + maGiamThi);
             }
         } catch (NumberFormatException e) {
-            System.out.println("❌ Mã giám thị phải là số nguyên!");
+            System.out.println("Mã giám thị phải là số nguyên!");
         }
     }
     
