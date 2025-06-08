@@ -48,15 +48,15 @@ public class ThongKeTuyenSinhService {
     }
     
     public void hienThiDanhSachTrungTuyen() {
-        System.out.println("\n===== DANH SÁCH THÍ SINH TRÚNG TUYỂN =====");
+        System.out.println("\n===== LIST OF ADMITTED CANDIDATES =====");
         
         List<NguyenVong> danhSachNguyenVong = NguyenVongService.getDanhSachNguyenVong();
         if (danhSachNguyenVong.isEmpty()) {
-            System.out.println("Danh sách nguyện vọng trống!");
+            System.out.println("Aspiration list is empty!");
             return;
         }
         
-        System.out.print("Nhập mã nguyện vọng để xem danh sách trúng tuyển: ");
+        System.out.print("Enter aspiration code to view admission list: ");
         try {
             int maNguyenVong = Integer.parseInt(sc.nextLine());
             
@@ -70,17 +70,17 @@ public class ThongKeTuyenSinhService {
             }
             
             if (nguyenVong == null) {
-                System.out.println("Không tìm thấy nguyện vọng với mã: " + maNguyenVong);
+                System.out.println("No aspiration found with code: " + maNguyenVong);
                 return;
             }
             
             // Hiển thị thông tin nguyện vọng
-            System.out.println("\nThông tin nguyện vọng:");
-            System.out.println("- Mã ngành: " + nguyenVong.getMaNganh());
-            System.out.println("- Tên ngành: " + nguyenVong.getTenNganh());
-            System.out.println("- Mã trường: " + nguyenVong.getMaTruong());
-            System.out.println("- Khối xét tuyển: " + nguyenVong.getKhoiXetTuyen());
-            System.out.println("- Điểm chuẩn: " + nguyenVong.getDiemDatDieuKien());
+            System.out.println("\nAspiration Information:");
+            System.out.println("- Major Code: " + nguyenVong.getMaNganh());
+            System.out.println("- Major Name: " + nguyenVong.getTenNganh());
+            System.out.println("- School Code: " + nguyenVong.getMaTruong());
+            System.out.println("- Admission Group: " + nguyenVong.getKhoiXetTuyen());
+            System.out.println("- Required Score: " + nguyenVong.getDiemDatDieuKien());
             
             // Tạo danh sách thí sinh để sắp xếp
             List<ThiSinhTrungTuyen> danhSachThiSinhTrungTuyen = new ArrayList<>();
@@ -99,15 +99,15 @@ public class ThongKeTuyenSinhService {
             Collections.sort(danhSachThiSinhTrungTuyen);
             
             // Hiển thị danh sách đã sắp xếp
-            System.out.println("\nDanh sách thí sinh theo điểm thi (giảm dần):");
+            System.out.println("\nList of candidates by test score (descending):");
             
             if (danhSachThiSinhTrungTuyen.isEmpty()) {
-                System.out.println("Không có thí sinh nào đăng ký nguyện vọng này.");
+                System.out.println("No candidates registered for this aspiration.");
                 return;
             }
             
-            System.out.printf("%-15s %-30s %-10s %-15s %-15s%n", 
-                             "Số báo danh", "Họ và tên", "Giới tính", "Tổng điểm", "Kết quả");
+            System.out.printf("%-15s %-30s %-10s %-15s %-15s%n",
+                              "ID", "Full Name", "Gender", "Total Score", "Result");
             System.out.println("-".repeat(85));
             
             boolean coThiSinhTrungTuyen = false;
@@ -120,50 +120,50 @@ public class ThongKeTuyenSinhService {
                                  ts.getHoTen(),
                                  ts.getGioiTinh(),
                                  tstt.getTongDiem(),
-                                 tstt.isTrungTuyen() ? "Trúng tuyển" : "Không trúng tuyển");
+                                 tstt.isTrungTuyen() ? "Admitted" : "Not Admitted");
             }
             
             if (!coThiSinhTrungTuyen) {
-                System.out.println("Không có thí sinh nào trúng tuyển nguyện vọng này.");
+                System.out.println("No candidates qualified for this aspiration.");
             }
             
         } catch (NumberFormatException e) {
-            System.out.println("Mã nguyện vọng phải là số nguyên!");
+            System.out.println("Aspiration code must be an integer!");
         }
         
         // Đoạn code cho người dùng nhấn 0 để quay lại menu
         boolean validInput = false;
         while (!validInput) {
-            System.out.println("\nNhấn 0 để quay lại menu chính...");
+            System.out.println("\nPress 0 to return to main menu...");
             try {
                 String input = sc.nextLine();
                 if (input.equals("0")) {
                     validInput = true;
-                    System.out.println("Đang quay lại menu chính...");
+                    System.out.println("Returning to main menu...");
                 } else {
-                    System.out.println("Vui lòng nhấn 0 để quay lại menu chính.");
+                    System.out.println("Please press 0 to return to main menu.");
                 }
             } catch (Exception e) {
-                System.out.println("Đã xảy ra lỗi. Vui lòng thử lại.");
+                System.out.println("An error occurred. Please try again.");
             }
         }
     }
     
     public void hienThiDanhSachTrungTuyenTheoMaTruongVaMaNganh() {
-        System.out.println("\n===== DANH SÁCH THÍ SINH TRÚNG TUYỂN THEO TRƯỜNG VÀ NGÀNH =====");
+        System.out.println("\n===== LIST OF ADMITTED CANDIDATES BY SCHOOL AND MAJOR =====");
         
         List<NguyenVong> danhSachNguyenVong = NguyenVongService.getDanhSachNguyenVong();
         if (danhSachNguyenVong.isEmpty()) {
-            System.out.println("Danh sách nguyện vọng trống!");
+            System.out.println("Aspiration list is empty!");
             return;
         }
         
         // Nhập mã trường
-        System.out.print("Nhập mã trường: ");
+        System.out.print("Enter school code: ");
         String maTruong = sc.nextLine();
         
         // Nhập mã ngành
-        System.out.print("Nhập mã ngành: ");
+        System.out.print("Enter major code: ");
         String maNganh = sc.nextLine();
         
         // Tìm các nguyện vọng thuộc trường và ngành
@@ -176,21 +176,21 @@ public class ThongKeTuyenSinhService {
         }
         
         if (nguyenVongTheoTruongNganh.isEmpty()) {
-            System.out.println("Không tìm thấy nguyện vọng nào thuộc trường " + maTruong + 
-                               " và ngành " + maNganh);
+            System.out.println("No aspirations found for school " + maTruong +
+                            " and major " + maNganh);
             return;
         }
         
-        System.out.println("\nĐã tìm thấy " + nguyenVongTheoTruongNganh.size() + 
-                           " nguyện vọng với mã trường " + maTruong + 
-                           " và mã ngành " + maNganh + ":");
+        System.out.println("\nFound " + nguyenVongTheoTruongNganh.size() +
+                            " aspirations with school code " + maTruong +
+                           " and major code " + maNganh + ":");
         
         // Hiển thị thông tin các nguyện vọng tìm thấy
         for (NguyenVong nv : nguyenVongTheoTruongNganh) {
-            System.out.println("- Mã nguyện vọng: " + nv.getMaNguyenVong() + 
-                             ", Tên ngành: " + nv.getTenNganh() + 
-                             ", Khối: " + nv.getKhoiXetTuyen() + 
-                             ", Điểm chuẩn: " + nv.getDiemDatDieuKien());
+            System.out.println("- Aspiration Code: " + nv.getMaNguyenVong() +
+                              ", Major Name: " + nv.getTenNganh() +
+                             ", Group: " + nv.getKhoiXetTuyen() +
+                             ", Required Score: " + nv.getDiemDatDieuKien());
         }
         
         // Tạo danh sách thí sinh để sắp xếp
@@ -211,16 +211,16 @@ public class ThongKeTuyenSinhService {
         Collections.sort(danhSachThiSinhTrungTuyen);
         
         // Hiển thị danh sách đã sắp xếp
-        System.out.println("\nDanh sách thí sinh theo điểm thi (giảm dần):");
+        System.out.println("\nList of candidates by test score (descending):");
         
         if (danhSachThiSinhTrungTuyen.isEmpty()) {
-            System.out.println("Không có thí sinh nào đăng ký ngành " + maNganh + 
-                               " của trường " + maTruong);
+            System.out.println("No candidates registered for major " + maNganh +
+                                " of school " + maTruong);
             return;
         }
         
-        System.out.printf("%-15s %-30s %-10s %-15s %-15s%n", 
-                         "Số báo danh", "Họ và tên", "Giới tính", "Tổng điểm", "Kết quả");
+        System.out.printf("%-15s %-30s %-10s %-15s %-15s%n",
+                          "ID", "Full Name", "Gender", "Total Score", "Result");
         System.out.println("-".repeat(85));
         
         boolean coThiSinhTrungTuyen = false;
@@ -233,42 +233,42 @@ public class ThongKeTuyenSinhService {
                              ts.getHoTen(),
                              ts.getGioiTinh(),
                              tstt.getTongDiem(),
-                             tstt.isTrungTuyen() ? "Trúng tuyển" : "Không trúng tuyển");
+                             tstt.isTrungTuyen() ? "Admitted" : "Not Admitted");
         }
         
         if (!coThiSinhTrungTuyen) {
-            System.out.println("Không có thí sinh nào trúng tuyển ngành " + maNganh + 
-                               " của trường " + maTruong);
+            System.out.println("No candidates qualified for major " + maNganh +
+                                " of school " + maTruong);
         }
         
         // Đoạn code cho người dùng nhấn 0 để quay lại menu
         boolean validInput = false;
         while (!validInput) {
-            System.out.println("\nNhấn 0 để quay lại menu chính...");
+            System.out.println("\nPress 0 to return to main menu...");
             try {
                 String input = sc.nextLine();
                 if (input.equals("0")) {
                     validInput = true;
-                    System.out.println("Đang quay lại menu chính...");
+                    System.out.println("Returning to main menu...");
                 } else {
-                    System.out.println("Vui lòng nhấn 0 để quay lại menu chính.");
+                    System.out.println("Please press 0 to return to main menu.");
                 }
             } catch (Exception e) {
-                System.out.println("Đã xảy ra lỗi. Vui lòng thử lại.");
+                System.out.println("An error occurred. Please try again.");
             }
         }
     }
     
     public void ghiDanhSachTrungTuyenTheoNguyenVong() {
-        System.out.println("\n===== GHI DANH SÁCH THÍ SINH TRÚNG TUYỂN RA FILE =====");
+        System.out.println("\n===== WRITE ADMITTED CANDIDATES LIST TO FILE =====");
         
         List<NguyenVong> danhSachNguyenVong = NguyenVongService.getDanhSachNguyenVong();
         if (danhSachNguyenVong.isEmpty()) {
-            System.out.println("Danh sách nguyện vọng trống!");
+            System.out.println("Aspiration list is empty!");
             return;
         }
         
-        System.out.print("Nhập mã nguyện vọng để xuất danh sách trúng tuyển: ");
+        System.out.print("Enter aspiration code to export admission list: ");
         try {
             int maNguyenVong = Integer.parseInt(sc.nextLine());
             
@@ -282,7 +282,7 @@ public class ThongKeTuyenSinhService {
             }
             
             if (nguyenVong == null) {
-                System.out.println("Không tìm thấy nguyện vọng với mã: " + maNguyenVong);
+                System.out.println("No aspiration found with code: " + maNguyenVong);
                 return;
             }
             
@@ -317,19 +317,19 @@ public class ThongKeTuyenSinhService {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
                 // Ghi thông tin nguyện vọng
                 writer.write("======================================================\n");
-                writer.write("           DANH SÁCH THÍ SINH TRÚNG TUYỂN\n");
+                writer.write("           LIST OF ADMITTED CANDIDATES\n");
                 writer.write("======================================================\n\n");
-                writer.write("THÔNG TIN NGUYỆN VỌNG:\n");
-                writer.write("- Mã nguyện vọng: " + nguyenVong.getMaNguyenVong() + "\n");
-                writer.write("- Mã ngành: " + nguyenVong.getMaNganh() + "\n");
-                writer.write("- Tên ngành: " + nguyenVong.getTenNganh() + "\n");
-                writer.write("- Mã trường: " + nguyenVong.getMaTruong() + "\n");
-                writer.write("- Khối xét tuyển: " + nguyenVong.getKhoiXetTuyen() + "\n");
-                writer.write("- Điểm chuẩn: " + nguyenVong.getDiemDatDieuKien() + "\n\n");
+                writer.write("ASPIRATION INFORMATION:\n");
+                writer.write("- Aspiration Code: " + nguyenVong.getMaNguyenVong() + "\n");
+                writer.write("- Major Code: " + nguyenVong.getMaNganh() + "\n");
+                writer.write("- Major Name: " + nguyenVong.getTenNganh() + "\n");
+                writer.write("- School Code: " + nguyenVong.getMaTruong() + "\n");
+                writer.write("- Admission Group: " + nguyenVong.getKhoiXetTuyen() + "\n");
+                writer.write("- Required Score: " + nguyenVong.getDiemDatDieuKien() + "\n\n");
                 
                 // Ghi danh sách thí sinh
                 writer.write(String.format("%-15s %-30s %-10s %-15s %-15s\n", 
-                                         "Số báo danh", "Họ và tên", "Giới tính", "Tổng điểm", "Kết quả"));
+                                         "ID", "Full Name", "Gender", "Total Score", "Result"));
                 writer.write("-".repeat(85) + "\n");
                 
                 boolean coThiSinhTrungTuyen = false;
@@ -344,41 +344,41 @@ public class ThongKeTuyenSinhService {
                                                 ts.getHoTen(),
                                                 ts.getGioiTinh(),
                                                 tstt.getTongDiem(),
-                                                "Trúng tuyển"));
+                                                "Admitted"));
                     }
                 }
                 
                 if (!coThiSinhTrungTuyen) {
-                    writer.write("Không có thí sinh nào trúng tuyển nguyện vọng này.\n");
+                    writer.write("No candidates qualified for this aspiration.\n");
                 }
                 
                 // Thêm thông tin thời gian xuất báo cáo
                 writer.write("\n\n");
-                writer.write("Báo cáo được tạo lúc: " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()) + "\n");
+                writer.write("Report generated at: " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()) + "\n");
                 
-                System.out.println(" Đã ghi danh sách thí sinh trúng tuyển vào file: " + fileName);
+                System.out.println(" Successfully wrote admitted candidates list to file: " + fileName);
             } catch (IOException e) {
-                System.out.println(" Lỗi khi ghi file: " + e.getMessage());
+                System.out.println(" Error writing file: " + e.getMessage());
             }
             
         } catch (NumberFormatException e) {
-            System.out.println(" Mã nguyện vọng phải là số nguyên!");
+            System.out.println(" Aspiration code must be an integer!");
         }
         
         // Đoạn code cho người dùng nhấn 0 để quay lại menu
         boolean validInput = false;
         while (!validInput) {
-            System.out.println("\nNhấn 0 để quay lại menu chính...");
+            System.out.println("\nPress 0 to return to main menu...");
             try {
                 String input = sc.nextLine();
                 if (input.equals("0")) {
                     validInput = true;
-                    System.out.println("Đang quay lại menu chính...");
+                    System.out.println("Returning to main menu...");
                 } else {
-                    System.out.println("Vui lòng nhấn 0 để quay lại menu chính.");
+                    System.out.println("Please press 0 to return to main menu.");
                 }
             } catch (Exception e) {
-                System.out.println("Đã xảy ra lỗi. Vui lòng thử lại.");
+                System.out.println("An error occurred. Please try again.");
             }
         }
     }

@@ -60,11 +60,11 @@ public class GiamThi {
         sb.append("╔════════════════════════════════════════════════════════════╗\n");
         sb.append("║                   THÔNG TIN GIÁM THỊ                      ║\n");
         sb.append("╠════════════════════════════════════════════════════════════╣\n");
-        sb.append(String.format("║  Mã giám thị:  %-40d ║\n", maGiamThi));
-        sb.append(String.format("║  Họ và tên:    %-40s ║\n", hoTen));
-        sb.append(String.format("║  Giới tính:    %-40s ║\n", gioiTinh));
-        sb.append(String.format("║  Năm sinh:     %-40d ║\n", namSinh));
-        sb.append(String.format("║  Quê quán:     %-40s ║\n", queQuan));
+        sb.append(String.format("║  Supervisor ID: %-40d ║\n", maGiamThi));
+        sb.append(String.format("║  Full Name:    %-40s ║\n", hoTen));
+        sb.append(String.format("║  Gender:       %-40s ║\n", gioiTinh));
+        sb.append(String.format("║  Birth Year:   %-40d ║\n", namSinh));
+        sb.append(String.format("║  Hometown:     %-40s ║\n", queQuan));
         sb.append("╚════════════════════════════════════════════════════════════╝");
         return sb.toString();
     }

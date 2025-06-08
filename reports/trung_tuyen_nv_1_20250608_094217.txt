@@ -1,0 +1,18 @@
+======================================================
+           LIST OF ADMITTED CANDIDATES
+======================================================
+
+ASPIRATION INFORMATION:
+- Aspiration Code: 1
+- Major Code: 2
+- Major Name: 1
+- School Code: 2
+- Admission Group: A
+- Required Score: 1.0
+
+ID              Full Name                      Gender     Total Score     Result         
+-------------------------------------------------------------------------------------
+No candidates qualified for this aspiration.
+
+
+Report generated at: 08/06/2025 09:42:17

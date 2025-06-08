@@ -38,7 +38,7 @@ public class NguyenVongService {
 
     // Cập nhật nguyện vọng
     public void capNhatNguyenVong() {
-        System.out.print("Nhập mã nguyện vọng cần cập nhật: ");
+        System.out.print("Enter aspiration code to update: ");
         try {
             int maNguyenVong = Integer.parseInt(sc.nextLine());
             for (NguyenVong nv : danhSachNguyenVong) {
@@ -59,26 +59,26 @@ public class NguyenVongService {
                   return;
             }
         }
-        System.out.println("Không tìm thấy mã nguyện vọng.");
+        System.out.println("Aspiration code not found.");
     } catch (NumberFormatException e) {
-        System.out.println("Lỗi: Mã nguyện vọng phải là số.");
+        System.out.println("Error: Aspiration code must be a number.");
     }
 }
 
 
     // Xoá nguyện vọng
     public void xoaNguyenVong() {
-    System.out.print("Nhập mã nguyện vọng cần xóa: ");
+    System.out.print("Enter aspiration code to delete: ");
     try {
         int maNguyenVong = Integer.parseInt(sc.nextLine());
         boolean removed = danhSachNguyenVong.removeIf(nv -> nv.getMaNguyenVong() == maNguyenVong);
         if (removed) {
-            System.out.println("Xóa nguyện vọng thành công.");
+            System.out.println("Aspiration successfully deleted.");
         } else {
-            System.out.println("Không tìm thấy mã nguyện vọng.");
+            System.out.println("Aspiration code not found.");
         }
     } catch (NumberFormatException e) {
-        System.out.println("Lỗi: Mã nguyện vọng phải là số.");
+        System.out.println("Error: Aspiration code must be a number.");
     }
 }
 
@@ -94,17 +94,17 @@ public class NguyenVongService {
         }
         boolean validInput = false;
         while (!validInput) {
-        System.out.println("\nNhấn 0 để quay lại menu chính...");
+        System.out.println("\nPress 0 to return to main menu...");
         try {
             String input = sc.nextLine();
             if (input.equals("0")) {
                 validInput = true;
-                System.out.println("Đang quay lại menu chính...");
+                System.out.println("Returning to main menu...");
             } else {
-                System.out.println("Vui lòng nhấn 0 để quay lại menu chính.");
+                System.out.println("Please press 0 to return to main menu.");
             }
         } catch (Exception e) {
-            System.out.println("Đã xảy ra lỗi. Vui lòng thử lại.");
+            System.out.println("An error occurred. Please try again.");
         }
     }
     }
@@ -135,42 +135,42 @@ public class NguyenVongService {
 
          switch (choice) {
             case 1:
-                System.out.print("Nhập mã ngành cần tìm: ");
+                System.out.print("Enter major code to search: ");
                 String maNganh = sc.nextLine();
                 ketQua = danhSachNguyenVong.stream()
                         .filter(nv -> nv.getMaNganh().equalsIgnoreCase(maNganh))
                         .collect(Collectors.toList());
                 break;
             case 2:
-                System.out.print("Nhập tên ngành cần tìm: ");
+                System.out.print("Enter major name to search: ");
                 String tenNganh = sc.nextLine().toLowerCase();
                 ketQua = danhSachNguyenVong.stream()
                         .filter(nv -> nv.getTenNganh().toLowerCase().contains(tenNganh))
                         .collect(Collectors.toList());
                 break;
             case 3:
-                System.out.print("Nhập mã trường cần tìm: ");
+                System.out.print("Enter school code to search: ");
                 String maTruong = sc.nextLine();
                 ketQua = danhSachNguyenVong.stream()
                         .filter(nv -> nv.getMaTruong().equalsIgnoreCase(maTruong))
                         .collect(Collectors.toList());
                 break;
             case 4:
-                System.out.print("Nhập khối xét tuyển ( A, A1, B, C, D): ");
+                System.out.print("Enter admission group ( A, A1, B, C, D): ");
                 String khoi = sc.nextLine().toUpperCase();
                 ketQua = danhSachNguyenVong.stream()
                         .filter(nv -> nv.getKhoiXetTuyen().name().equals(khoi))
                         .collect(Collectors.toList());
                 break;
             case 5:
-                System.out.print("Nhập điểm đạt điều kiện (>=): ");
+                System.out.print("Enter required score (>=): ");
                 double diem = Double.parseDouble(sc.nextLine());
                 ketQua = danhSachNguyenVong.stream()
                         .filter(nv -> nv.getDiemDatDieuKien() >= diem)
                         .collect(Collectors.toList());
                 break;
             default:
-                System.out.println("Lựa chọn không hợp lệ.");
+                System.out.println("Invalid choice.");
                 return;
         }
         if (ketQua.isEmpty()) {

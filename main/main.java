@@ -13,39 +13,43 @@ public class main {
     int choice = -1;
 
     do {
-            System.out.println("\n===== QUẢN LÝ TUYỂN SINH =====");
-            // Menu hiện tại
-            System.out.println("1. Thêm nguyện vọng");
-            System.out.println("2. Cập nhật nguyện vọng");
-            System.out.println("3. Xóa nguyện vọng");
-            System.out.println("4. Hiển thị danh sách nguyện vọng");
-            System.out.println("5. Tìm kiếm nguyện vọng");
-            System.out.println("6. Thêm thí sinh");
-            System.out.println("7. Cập nhật thí sinh");
-            System.out.println("8. Xoá thí sinh");
-            System.out.println("9. Thêm nguyện vọng cho thí sinh");
-            System.out.println("10. Xóa nguyện vọng cho thí sinh");
-            System.out.println("11. Tìm kiếm thí sinh");
-            System.out.println("12. Hiển thị danh sách thí sinh");
-            System.out.println("13. Thêm giám thị");
-            System.out.println("14. Cập nhật giám thị");
-            System.out.println("15. Xóa giám thị");
-            System.out.println("16. Hiển thị danh sách giám thị");
-            System.out.println("17. Hiển thị danh sách thí sinh trúng tuyển theo mã nguyện vọng");
-            System.out.println("18. Hiển thị danh sách thí sinh trúng tuyển theo mã trường và mã ngành");
-            System.out.println("19. Ghi danh sách thí sinh trúng tuyển theo mã nguyện vọng ra file");
-            System.out.println("0. Thoát");
-            System.out.print("Chọn chức năng: ");
+            System.out.println("\n===== ADMISSION MANAGEMENT =====");
+            // Current menu
+            System.out.println("1. Add aspiration");
+            System.out.println("2. Update aspiration");
+            System.out.println("3. Delete aspiration");
+            System.out.println("4. Display aspirations list");
+            System.out.println("5. Search aspiration");
+            System.out.println("6. Add candidate");
+            System.out.println("7. Update candidate");
+            System.out.println("8. Delete candidate");
+            System.out.println("9. Add aspiration for candidate");
+            System.out.println("10. Delete aspiration for candidate");
+            System.out.println("11. Search candidate");
+            System.out.println("12. Display candidates list");
+            System.out.println("13. Add supervisor");
+            System.out.println("14. Update supervisor");
+            System.out.println("15. Delete supervisor");
+            System.out.println("16. Display supervisors list");
+            System.out.println("17. Display list of admitted candidates by aspiration code");
+            System.out.println("18. Display list of admitted candidates by school code and major code");
+            System.out.println("19. Write list of admitted candidates by aspiration code to file");
+            System.out.println("20. Read supervisors list from file");
+            System.out.println("21. Read candidates list from file");
+            System.out.println("0. Exit");
+            System.out.print("Choose function: ");
 
             try {
                 choice = Integer.parseInt(sc.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println(" Lựa chọn không hợp lệ. Vui lòng nhập một số.");
+                System.out.println("Invalid choice. Please enter a number.");
                 continue;
             }
 
             switch (choice) {
                 case 1:
+                // nvservice is an object that manages aspirations and themNguyenVong is a method to add aspirations
+                // since we cannot directly call themNguyenVong() method of NguyenVongService class, we need to create an nvservice object
                     nvservice.themNguyenVong();
                     break;
                 case 2:
@@ -102,11 +106,17 @@ public class main {
                 case 19:
                     tkservice.ghiDanhSachTrungTuyenTheoNguyenVong();
                     break;
+                case 20:
+                    gtservice.docDanhSachGiamThiTuFile();
+                    break;
+                case 21:
+                    tsservice.docDanhSachThiSinhTuFile();
+                    break;
                 case 0:
-                    System.out.println("Đang thoát chương trình...");
+                    System.out.println("Exiting program...");
                     break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn từ 0-19.");
+                    System.out.println("Invalid choice. Please choose from 0-21.");
             }
         } while (choice != 0);
 

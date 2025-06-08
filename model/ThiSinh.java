@@ -100,19 +100,19 @@ public String toString() {
     sb.append("╔════════════════════════════════════════════════════════════╗\n");
     sb.append("║                      THÔNG TIN THÍ SINH                    ║\n");
     sb.append("╠════════════════════════════════════════════════════════════╣\n");
-    sb.append(String.format("║  Số báo danh   : %-40s ║\n", soBaoDanh));
-    sb.append(String.format("║  Họ và tên     : %-40s ║\n", hoTen));
-    sb.append(String.format("║  Giới tính     : %-40s ║\n", gioiTinh));
-    sb.append(String.format("║  Năm sinh      : %-40d ║\n", namSinh));
-    sb.append(String.format("║  Quê quán      : %-40s ║\n", queQuan));
-    sb.append(String.format("║  Điểm thi      : %-40.2f ║\n", diemThi));
-    sb.append(String.format("║  Điểm ưu tiên  : %-40.2f ║\n", diemUuTien));
+    sb.append(String.format("║  ID            : %-40s ║\n", soBaoDanh));
+    sb.append(String.format("║  Full Name     : %-40s ║\n", hoTen));
+    sb.append(String.format("║  Gender        : %-40s ║\n", gioiTinh));
+    sb.append(String.format("║  Birth Year    : %-40d ║\n", namSinh));
+    sb.append(String.format("║  Hometown      : %-40s ║\n", queQuan));
+    sb.append(String.format("║  Test Score    : %-40.2f ║\n", diemThi));
+    sb.append(String.format("║  Priority Score: %-40.2f ║\n", diemUuTien));
     sb.append("╚════════════════════════════════════════════════════════════╝\n");
 
     if (danhSachNguyenVong.isEmpty()) {
-        sb.append("Thí sinh chưa đăng ký nguyện vọng nào.\n");
+        sb.append("Candidate has not registered for any aspirations.\n");
     } else {
-        sb.append("Danh sách nguyện vọng:\n");
+        sb.append("List of aspirations:\n");
         for (NguyenVong nv : danhSachNguyenVong) {
             sb.append(nv.toString()).append("\n");
         }
