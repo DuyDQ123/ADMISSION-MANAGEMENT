@@ -87,7 +87,7 @@ public class NguyenVongService {
         if (danhSachNguyenVong.isEmpty()) {
             System.out.println("Aspiration list is empty.");
         } else {
-            System.out.println("\\n===== DANH SÁCH NGUYỆN VỌNG =====");
+            System.out.println("\\n===== ASPIRATION LIST =====");
             for (NguyenVong nv : danhSachNguyenVong) {
                 System.out.println(nv);
             }

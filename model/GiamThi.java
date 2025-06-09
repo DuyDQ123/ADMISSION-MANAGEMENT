@@ -58,7 +58,7 @@ public class GiamThi {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("╔════════════════════════════════════════════════════════════╗\n");
-        sb.append("║                   THÔNG TIN GIÁM THỊ                      ║\n");
+        sb.append("║                   SUPERVISOR INFORMATION                   ║\n");
         sb.append("╠════════════════════════════════════════════════════════════╣\n");
         sb.append(String.format("║  Supervisor ID: %-40d ║\n", maGiamThi));
         sb.append(String.format("║  Full Name:    %-40s ║\n", hoTen));

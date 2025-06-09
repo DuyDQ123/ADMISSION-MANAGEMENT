@@ -98,7 +98,7 @@ public class ThiSinh {
 public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("╔════════════════════════════════════════════════════════════╗\n");
-    sb.append("║                      THÔNG TIN THÍ SINH                    ║\n");
+    sb.append("║                     STUDENT INFORMATION                    ║\n");
     sb.append("╠════════════════════════════════════════════════════════════╣\n");
     sb.append(String.format("║  ID            : %-40s ║\n", soBaoDanh));
     sb.append(String.format("║  Full Name     : %-40s ║\n", hoTen));
