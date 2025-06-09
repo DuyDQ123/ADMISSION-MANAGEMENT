@@ -48,8 +48,8 @@ public class main {
 
             switch (choice) {
                 case 1:
-                // nvservice is an object that manages aspirations and themNguyenVong is a method to add aspirations
-                // since we cannot directly call themNguyenVong() method of NguyenVongService class, we need to create an nvservice object
+                // nvservice là đối tượng quản lý các nguyện vọng và themNguyenVong là phương thức để thêm các nguyện vọng
+                // vì không thể gọi trực tiếp phương thức NguyenVong() của lớp NguyenVongService, chúng ta cần tạo một đối tượng nvservice
                     nvservice.themNguyenVong();
                     break;
                 case 2:
